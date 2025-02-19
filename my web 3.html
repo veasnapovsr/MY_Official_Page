@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .logo {
+            background: #dcdcdc;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 20px;
+        }
+        .slideshow-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            padding-bottom: 20px;
+        }
+        .slideshow-card {
+            flex: 0 0 auto;
+            width: 500px;
+            margin: 10px;
+        }
+        .slideshow {
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            left: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .slideshow img.active {
+            transform: translateX(-100%);
+        }
+        .border-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .border-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .border-img {
+            width: 40%;
+            border: 5px solid transparent; /* Make borders transparent initially */
+            padding: 10px;
+            transition: border 0.6s ease-in-out;
+        }
+        .border-desc {
+            width: 50%;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        /* Trigger the border pop effect */
+        .border-section.show .border-img {
+            border-left: 5px solid black;
+            border-bottom: 5px solid black;
+        }
+		
+		
+		/* Professional Styling for Borders and Hover Effects */
+
+/* General body styling */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Enhancing Slideshow Borders */
+.slideshow-card {
+    border: 4px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slideshow-card:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+/* Adding Hover Effects for Bottom Section Borders */
+.border-img {
+    width: 40%;
+    border: 5px solid transparent;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.border-section:hover .border-img {
+    border-color: #ff6600;
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+}
+
+/* Enhancing Description Section */
+.border-desc {
+    width: 50%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.border-section:hover .border-desc {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations for Border Pop Effect */
+.border-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.border-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Border Animation on Appear */
+.border-section.show .border-img {
+    border-left: 5px solid #000;
+    border-bottom: 5px solid #000;
+    animation: borderFadeIn 1s ease-in-out;
+}
+
+@keyframes borderFadeIn {
+    0% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: #000;
+    }
+}
+
+		
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo">Logo</div>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow-card" id="education">
+                <div class="card p-3">
+                    <div class="slideshow" id="slide1">
+                        <img src="cadt.jpg" class="active" alt="Education">
+                        <img src="def.jpg" alt="Slide 2">
+                        <img src="ace.jpg" alt="Slide 3">
+                    </div>
+                    <!-- Add anchor link to bottom section -->
+                    <a href="#section1">
+                        <h5 class="text-center mt-3">Education</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="slideshow-card" id="sport">
+                <div class="card p-3">
+                    <div class="slideshow" id="slide2">
+                        <img src="sport1.jpg" class="active" alt="Sport">
+                        <img src="sport2.jpg" alt="Slide 2">
+                        <img src="sport3.jpg" alt="Slide 3">
+                    </div>
+                    <!-- Add anchor link to bottom section -->
+                    <a href="#section2">
+                        <h5 class="text-center mt-3">Sport</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="slideshow-card" id="activity">
+                <div class="card p-3">
+                    <div class="slideshow" id="slide3">
+                        <img src="7.jpg" class="active" alt="Activity">
+                        <img src="8.jpg" alt="Slide 2">
+                        <img src="9.jpg" alt="Slide 3">
+                    </div>
+                    <!-- Add anchor link to bottom section -->
+                    <a href="#section3">
+                        <h5 class="text-center mt-3">Activity</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="slideshow-card" id="music">
+                <div class="card p-3">
+                    <div class="slideshow" id="slide4">
+                        <img src="10.jpg" class="active" alt="Music">
+                        <img src="11.jpg" alt="Slide 2">
+                        <img src="12.jpg" alt="Slide 3">
+                    </div>
+                    <!-- Add anchor link to bottom section -->
+                    <a href="#section4">
+                        <h5 class="text-center mt-3">Music</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="slideshow-card" id="art">
+                <div class="card p-3">
+                    <div class="slideshow" id="slide5">
+                        <img src="image13.jpg" class="active" alt="Art">
+                        <img src="image14.jpg" alt="Slide 2">
+                        <img src="image15.jpg" alt="Slide 3">
+                    </div>
+                    <!-- Add anchor link to bottom section -->
+                    <a href="#section5">
+                        <h5 class="text-center mt-3">Art</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="border-section" id="section1">
+            <img src="1.jpg" class="border-img" alt="Education">
+            <div class="border-desc">Description for Education Slide</div>
+        </div>
+        <div class="border-section flex-row-reverse" id="section2">
+            <img src="6.jpg" class="border-img" alt="Sport">
+            <div class="border-desc">Description for Sport Slide</div>
+        </div>
+        <div class="border-section" id="section3">
+            <img src="7.jpg" class="border-img" alt="Activity">
+            <div class="border-desc">Description for Activity Slide</div>
+        </div>
+        <div class="border-section flex-row-reverse" id="section4">
+            <img src="10.jpg" class="border-img" alt="Music">
+            <div class="border-desc">Description for Music Slide</div>
+        </div>
+        <div class="border-section" id="section5">
+            <img src="image13.jpg" class="border-img" alt="Art">
+            <div class="border-desc">Description for Art Slide</div>
+        </div>
+    </div>
+    <script>
+        // Slideshow logic
+        function startSlideshow(id) {
+            const container = document.getElementById(id);
+            const images = container.getElementsByTagName('img');
+            let index = 0;
+            setInterval(() => {
+                images[index].classList.remove('active');
+                index = (index + 1) % images.length;
+                images[index].classList.add('active');
+            }, 3000);
+        }
+        startSlideshow('slide1');
+        startSlideshow('slide2');
+        startSlideshow('slide3');
+        startSlideshow('slide4');
+        startSlideshow('slide5');
+
+        // Scroll event listener to trigger border animations
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.border-section');
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    section.classList.add('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
